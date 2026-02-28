@@ -8,6 +8,9 @@ public class Array {
      * @param pet Pet
      */
     public void inserir(Pet pet) {
+        if (contador == lista.length) {
+            lista = alocarNovoArray();
+        }
         lista[contador++] = pet;
     }
 
@@ -18,6 +21,15 @@ public class Array {
         for(int i = 0; i < contador; i++) {
             System.out.println(lista[i]);
         }
+    }
+
+
+    private Pet[] alocarNovoArray() {
+        Pet[] novo = new Pet[lista.length+3];
+
+        System.arraycopy(lista, 0, novo, 0, lista.length);
+
+        return novo;
     }
 
 }
