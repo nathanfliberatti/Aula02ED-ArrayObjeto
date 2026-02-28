@@ -1,5 +1,13 @@
 public class Pet {
 
+    /**
+     * static pois é um atributo da classe, não do objeto
+     * então caso não tivesse o static o atributo pertenceria ao objeto,
+     * e não conseguiria incrementar para o próximo
+     * objeto que será instanciado
+     */
+    private static int i = 1;
+
     private String nome;
     private String raca;
     private float peso;
@@ -8,11 +16,11 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(String nome, String raca, float peso, int id) {
+    public Pet(String nome, String raca, float peso) {
         this.nome = nome;
         this.raca = raca;
         this.peso = peso;
-        this.id = id;
+        this.id = i++;
     }
 
     public String getNome() {

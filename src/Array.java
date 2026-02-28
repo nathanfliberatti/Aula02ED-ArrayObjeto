@@ -32,4 +32,13 @@ public class Array {
         return novo;
     }
 
+    public int pesquisar(int id) {
+        for(int i = 0; i<lista.length; i++) {
+            if (lista[i].getId() == id) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
