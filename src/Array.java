@@ -32,7 +32,7 @@ public class Array {
         return novo;
     }
 
-    public int pesquisar(int id) {
+    private int pesquisar(int id) {
         for(int i = 0; i<lista.length; i++) {
             if (lista[i].getId() == id) {
                 return i;
@@ -41,4 +41,35 @@ public class Array {
         return -1;
     }
 
+    public boolean remover(int id) {
+        int indice = pesquisar(id);
+
+        if (indice >= 0) {
+            for(int i = indice; i<contador-1; i++) {
+                lista[i] = lista[i+1];
+            }
+            contador--;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean atualizarPeso(int id, float peso) {
+        int indice = pesquisar(id);
+
+        if (indice >= 0) {
+            lista[indice].setPeso(peso);
+            return true;
+        }
+        return false;
+    }
+
+    public Pet pesquisar(Integer id) {
+        int indice = pesquisar(id.intValue());
+
+        if (indice >= 0) {
+            return lista[indice];
+        }
+        return null;
+    }
 }
